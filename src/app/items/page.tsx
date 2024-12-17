@@ -3,6 +3,12 @@ import { ItemListResponse } from '../types/Item';
 import { fetchItemsList } from '../utils/serverApi';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "아이템 목록",
+  description: "아이템 목록",
+};
 
 const page = async () => {
   let items: ItemListResponse = await fetchItemsList();

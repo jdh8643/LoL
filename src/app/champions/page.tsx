@@ -3,6 +3,12 @@ import { ChampionListResponse } from '../types/Champion';
 import { fetchChampionsList } from '../utils/serverApi';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "챔피언 목록",
+  description: "챔피언 목록",
+};
 
 const page = async () => {
   let champions: ChampionListResponse = await fetchChampionsList();
