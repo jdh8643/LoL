@@ -7,3 +7,4 @@ export async function getChampionRotation(): Promise<ChampionRotation> {
   }
   return response.json();
 }
+
