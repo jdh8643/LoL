@@ -36,10 +36,10 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
         <h2 className="text-xl text-gray-600 mb-6">{champion.title}</h2>
         
         <div className="relative w-full max-w-2xl aspect-video mb-8">
-          <img
-            src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${params.id}_0.jpg`}
+          <Image
+            src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${params.id}_0.jpg`}
             alt={champion.name}
-            
+            fill
             className="object-cover rounded-lg"
           />
         </div>

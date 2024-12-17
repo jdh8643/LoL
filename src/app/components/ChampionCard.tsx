@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface ChampionCardProps {
   champion: {
     id: string;
@@ -12,10 +14,12 @@ export default function ChampionCard({ champion }: ChampionCardProps) {
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-      <img
+      <Image
         src={`${process.env.NEXT_PUBLIC_API_URL}/cdn/${version}/img/champion/${champion.id}.png`}
         alt={champion.name}
         className="w-full h-auto"
+        width={120}
+        height={120}
       />
       <div className="p-4">
         <h2 className="font-bold text-lg">{champion.name}</h2>

@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchItemsList } from '@/app/utils/serverApi';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default async function ItemDetailPage({ params }: { params: { id: string } }) {
   const items = await fetchItemsList();
@@ -23,10 +24,12 @@ export default async function ItemDetailPage({ params }: { params: { id: string 
         <div className="flex flex-col md:flex-row gap-8">
           {/* 아이템 이미지 섹션 */}
           <div className="w-full md:w-1/3">
-            <img
+            <Image
               src={`https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/${item.image.full}`}
               alt={item.name}
               className="w-full rounded-lg shadow-lg"
+              width={120}
+              height={120}
             />
           </div>
 
@@ -36,7 +39,7 @@ export default async function ItemDetailPage({ params }: { params: { id: string 
             
             {/* 가격 정보 */}
             <div className="mb-4">
-              <p className="text-gold-500">
+              <p className="text-gold-500 text-white">
                 구매가: {item.gold.total} 골드
                 {item.gold.sell > 0 && ` (판매가: ${item.gold.sell} 골드)`}
               </p>
@@ -71,11 +74,13 @@ export default async function ItemDetailPage({ params }: { params: { id: string 
                 <h2 className="text-xl font-semibold text-gray-300 mb-2">제작 가능 아이템</h2>
                 <div className="flex flex-wrap gap-4">
                   {item.into.map((itemId) => (
-                    <img
+                    <Image
                       key={itemId}
                       src={`https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/${itemId}.png`}
                       alt="Upgrades into"
                       className="w-12 h-12 rounded border border-gray-600"
+                      width={120}
+                      height={120}
                     />
                   ))}
                 </div>
